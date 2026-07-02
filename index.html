@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client's Art Corner - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
+                <h1>Client's Art Corner</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prints.html">Prints</a>
+                <a href="about-me.html">About Me</a>
+                <a href="Ongoing-Projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="user-section">
+                <a href="my-corner.html" class="auth-btn">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="welcome-box">
+            <h2 class="welcome-text" style="color: black;" >Welcome to my art corner!</h2>
+        </div>
+
+        <div class="latest-prints-container">
+            <h3 class="container">Latest Prints</h3>
+        <div class="container">
+            <a href="my-corner.html" class="action-btn">Log in!</a>
+            <a href="contact.html" class="action-btn">Contact me!</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Client's Art Corner. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        async function loadLatestPrints() {
+            const latestPrints = getLatestArts(5);
+            const container = document.getElementById('latestPrints');
+            
+            container.innerHTML = latestPrints.map(art => `
+                <div class="print-card" onclick="goToArt(${art.id})">
+                    <img src="${art.image}" alt="${art.name}">
+                    <div class="print-card-title">${art.name}</div>
+                </div>
+            `).join('');
+        }
+
+        function goToArt(artId) {
+            window.location.href = `art.html?id=${artId}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadLatestPrints);
+    </script>
+</body>
+</html>
+

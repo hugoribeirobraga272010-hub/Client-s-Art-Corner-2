@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Corner - Client's Art Corner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
+                <h1>Client's Art Corner</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prints.html">Prints</a>
+                <a href="about-me.html">About Me</a>
+                <a href="Ongoing-Projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="user-section">
+                <a href="my-corner.html" class="auth-btn">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-page">
+            <div id="loginView" class="container">
+                <h2>Login</h2>
+                <p class="login-subtitle">Entre com seu e-mail e nome de usuário para acessar sua conta.</p>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Nome de usuário</label>
+                        <input type="text" id="username" placeholder="Seu usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Sua senha" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Entrar</button>
+                </form>
+            </div>
+
+            <div id="dashboardView" class="dashboard-panel">
+                <div class="container">
+                    <h1 class="user-welcome" id="userWelcome"></h1>
+                    
+                    <div class="purchase-history" id="purchaseHistory">
+                        <h3>Histórico de compras</h3>
+                        <div id="purchaseList"></div>
+                    </div>
+
+                    <div class="dashboard-actions">
+                        <button class="action-btn" onclick="handleLogout()">Sair</button>
+                        <a href="prints.html" class="action-btn">Continuar comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Client's Art Corner. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const result = login(email, username, password);
+            
+            if (result.success) {
+                alert('Login successful!');
+                updateUserSection();
+                showDashboard();
+            } else {
+                alert(result.message);
+            }
+        }
+
+        function showDashboard() {
+            const user = getCurrentUser();
+            
+            if (!user) {
+                showLoginForm();
+                return;
+            }
+
+            document.getElementById('loginView').style.display = 'none';
+            document.getElementById('dashboardView').style.display = 'block';
+            
+            document.getElementById('userWelcome').textContent = `Welcome, ${user.username}!`;
+            
+            const purchases = getPurchaseHistory();
+            const purchaseList = document.getElementById('purchaseList');
+            
+            if (purchases.length === 0) {
+                purchaseList.innerHTML = '<p style="color: var(--accent-light);">No purchases yet. Start shopping!</p>';
+                return;
+            }
+
+            purchaseList.innerHTML = purchases.map((purchase, index) => `
+                <div class="purchase-item">
+                    <div class="purchase-item-title">Purchase #${index + 1}</div>
+                    <div class="purchase-item-details">
+                        <p><strong>Date:</strong> ${formatDate(purchase.date)}</p>
+                        <p><strong>Items:</strong> ${purchase.items.length}</p>
+                        <p><strong>Total:</strong> ${formatPrice(purchase.total)}</p>
+                        <div style="margin-top: 10px;">
+                            ${purchase.items.map(item => `
+                                <div style="font-size: 0.9rem; color: var(--accent-light);">
+                                    - ${item.name} (${item.size}) - ${formatPrice(item.price)}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginView').style.display = 'block';
+            document.getElementById('dashboardView').style.display = 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isLoggedIn()) {
+                showDashboard();
+            } else {
+                showLoginForm();
+            }
+        });
+    </script>
+</body>
+</html>
+

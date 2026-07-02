@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prints - Client's Art Corner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
+                <h1>Client's Art Corner</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prints.html">Prints</a>
+                <a href="about-me.html">About Me</a>
+                <a href="Ongoing-Projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="user-section">
+                <a href="my-corner.html" class="auth-btn">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="page-title" style="color: black;" >Prints</h2>
+
+        <div class="filter-section" id="filterSection">
+            <button class="filter-btn active" onclick="filterByCategory('All')">All</button>
+            <button class="filter-btn" onclick="filterByCategory('Album')">Album Covers</button>
+            <button class="filter-btn" onclick="filterByCategory('Game')">Game Covers</button>
+            <button class="filter-btn" onclick="filterByCategory('Movie')">Movie Covers</button>
+        </div>
+
+        <div class="gallery" id="printGallery">
+            <!-- Prints will be loaded here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Client's Art Corner. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        let currentCategory = 'All';
+
+        function displayPrints(arts) {
+            const gallery = document.getElementById('printGallery');
+            
+            if (arts.length === 0) {
+                gallery.innerHTML = '<p style="text-align: center; color: var(--accent-light);">No prints found in this category.</p>';
+                return;
+            }
+
+            gallery.innerHTML = arts.map(art => `
+                <div class="work-item" onclick="goToArt(${art.id})">
+                    <img src="${art.image}" alt="${art.name}">
+                    <div class="work-info">
+                        <div class="work-title">${art.name}</div>
+                        <div class="work-category">${art.category}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Display filtered prints
+            const filteredArts = getArtsByCategory(category);
+            displayPrints(filteredArts);
+        }
+
+        function goToArt(artId) {
+            window.location.href = `art.html?id=${artId}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const allArts = getArtsByCategory('All');
+            displayPrints(allArts);
+        });
+    </script>
+</body>
+</html>
+
