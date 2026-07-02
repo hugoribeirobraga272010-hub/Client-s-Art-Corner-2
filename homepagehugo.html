@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,70 +7,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
-
-        <h1 id="titulo">Client's Art Corner</h1>
-
-        <nav>
-            <a href="homepagehugo.html">Home</a>
-            <a href="about-me.html">About Me</a>
-            <a href="Ongoing-Projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <h2 id="recent_works">Recent Works</h2>
+        <div class="header-container">
+            <div class="logo-section">
+                <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
+                <h1>Client's Art Corner</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prints.html">Prints</a>
+                <a href="about-me.html">About Me</a>
+                <a href="Ongoing-Projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="user-section">
+                <a href="my-corner.html" class="auth-btn">Login</a>
+            </div>
+        </div>
     </header>
 
-    <div class="galeria">
+    <main>
+        <h2 class="page-title" style="color: black;">Recent Works</h2>
 
-        <div class="trabalhos">
-            <h2>Blink</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/blink.jpg" alt="Blink">
+        <div class="gallery">
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/blink.jpg" alt="Blink">
+                <div class="work-info">
+                    <div class="work-title">Blink</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/cure.jpg" alt="Cure">
+                <div class="work-info">
+                    <div class="work-title">Cure</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/deathbrain.jpg" alt="Deathbrain">
+                <div class="work-info">
+                    <div class="work-title">Deathbrain</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/figureinthedark.jpg" alt="Figure In The Dark">
+                <div class="work-info">
+                    <div class="work-title">Figure In The Dark</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/ghostcity.jpg" alt="Ghost City">
+                <div class="work-info">
+                    <div class="work-title">Ghost City</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/neck2.jpg" alt="Neck 777">
+                <div class="work-info">
+                    <div class="work-title">Neck 777</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/springisland.jpg" alt="Spring Island">
+                <div class="work-info">
+                    <div class="work-title">Spring Island</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/toollateralus.jpg" alt="Tool Lateralus">
+                <div class="work-info">
+                    <div class="work-title">Tool Lateralus</div>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="./Website Files/Website Files/Art Files/Album/twingalaxies.jpg" alt="Twin Galaxies">
+                <div class="work-info">
+                    <div class="work-title">Twin Galaxies</div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="trabalhos">
-            <h2>Cure</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/cure.jpg" alt="Cure">
-        </div>
+    <footer>
+        <p>&copy; 2026 Client's Art Corner. All rights reserved.</p>
+    </footer>
 
-        <div class="trabalhos">
-            <h2>Deathbrain</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/deathbrain.jpg" alt="Deathbrain">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Figure In The Dark</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/figureinthedark.jpg" alt="Figure In The Dark">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Ghost City</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/ghostcity.jpg" alt="Ghost City">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Neck 777</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/neck2.jpg" alt="Neck 777">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Spring Island</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/springisland.jpg" alt="Spring Island">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Tool Lateralus</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/toollateralus.jpg" alt="Tool Lateralus">
-        </div>
-
-        <div class="trabalhos">
-            <h2>Twin Galaxies</h2>
-            <img src="./Website Files/Website Files/Art Files/Album/twingalaxies.jpg" alt="Twin Galaxies">
-        </div>
-
-    </div>
-
+    <script src="app.js"></script>
 </body>
 </html>

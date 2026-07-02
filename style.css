@@ -273,28 +273,6 @@ main {
     gap: 10px;
 }
 
-.size-option,
-.buy-btn {
-    padding: 12px;
-    border: 1px solid var(--accent);
-
-    border-radius: 8px;
-
-    background: rgba(255,255,255,.08);
-    color: var(--white);
-
-    cursor: pointer;
-
-    transition: .3s;
-}
-
-.size-option:hover,
-.size-option.selected,
-.buy-btn:hover {
-    background: var(--accent);
-    color: #000;
-}
-
 .login-container,
 .contact-form {
     max-width: 600px;
@@ -396,6 +374,15 @@ main {
 .action-btn:hover {
     background: #7a7a7a;
     color: #fff;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
 }
 
 .filter-btn {
