@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-      <link rel="stylesheet" href="style.css">
+    <title>Cadastro - Client's Art Corner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <header>
-        <h1>Register</h1>
+        <div class="header-container">
+            <div class="logo-section">
+                <img id="logo-01" src="./Website Files/Website Files/Art Files/Album/logo.png" alt="logo">
+                <h1>Client's Art Corner</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="prints.html">Prints</a>
+                <a href="about-me.html">About Me</a>
+                <a href="Ongoing-Projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                <a href="cadastro.html">Register</a>
+            </nav>
+            <div class="user-section">
+                <a href="my-corner.html" class="auth-btn">Login</a>
+            </div>
+        </div>
     </header>
 
-    <form id="form-register">
-        <label>Username</label>
-        <input type="text" id="name-register"required>
+    <main class="login-page">
+        <section class="container">
+            <h2>Cadastro</h2>
+            <p class="login-subtitle">Crie sua conta para acessar o seu cantinho de arte.</p>
 
-        <label> Email </label>
-        <input type="email" id="email-register" required>
+            <form id="form-register" class="login-form">
+                <div class="form-group">
+                    <label for="name-register">Nome de usuário</label>
+                    <input type="text" id="name-register" name="name-register" placeholder="Digite seu usuário" required>
+                </div>
 
-        <label>Password</label>
-        <input type="password" id="password-register" required>
+                <div class="form-group">
+                    <label for="email-register">Email</label>
+                    <input type="email" id="email-register" name="email-register" placeholder="Digite seu email" required>
+                </div>
 
-        <br><br>
+                <div class="form-group">
+                    <label for="password-register">Senha</label>
+                    <input type="password" id="password-register" name="password-register" placeholder="Digite sua senha" required>
+                </div>
 
-        <button type="submit">Register</button>
-    </form>
+                <button type="submit" class="submit-btn">Registrar</button>
+            </form>
+        </section>
+    </main>
 </body>
 </html>
